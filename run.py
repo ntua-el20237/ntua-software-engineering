@@ -17,4 +17,5 @@ conn.autocommit = True
 #Creating a cursor object using the cursor() method
 cursor = conn.cursor()
 
+#Closing the connection
 conn.close()
