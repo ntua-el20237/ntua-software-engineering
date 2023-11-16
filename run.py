@@ -1,6 +1,6 @@
 import subprocess
 import os
-import requests
+import requests #pip install requests
 import mysql.connector
 
 #install python dependencies
