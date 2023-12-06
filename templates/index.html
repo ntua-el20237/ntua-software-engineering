@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Movie Search</title>
-</head>
-<body>
-    <form action="/search" method="post">
-        <label for="movie_title">Enter the movie title:</label>
-        <input type="text" id="movie_title" name="movie_title" required>
-        <button type="submit">Search</button>
-    </form>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block body %}
+    <div style="max-width: 600px; margin: 150px auto 0 auto; padding: 30px; text-align: center;">
+        <form action="/search" method="post" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+            <input style="width: calc(100% - 40px); padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #333; color: #fff; font-size: 16px;" type="text" id="movie_title" name="movie_title" placeholder="Enter the movie title" required>
+            <button style="width: 100px; padding: 15px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-left: 10px;">
+                Search
+            </button>
+        </form>
+    </div>
+{% endblock %}
