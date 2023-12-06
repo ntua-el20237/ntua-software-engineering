@@ -63,16 +63,14 @@ def login():
         user_name = request.form.get("user_name")
         submitted_user_password = request.form.get("submitted_user_password")
         
-        cursor.execute("SELECT * FROM users WHERE user_name=%s AND user_password=%s", (user_name, submitted_user_password))
-        user = cursor.fetchone()
+        #cursor.execute("SELECT * FROM users WHERE user_name=%s AND user_password=%s", (user_name, submitted_user_password))
+        #user = cursor.fetchone()
         
-        if user:
-            session['user_name'] = user_name
-            session['user'] = user
-            return redirect(url_for('index'))
-        else:
-            flash("Incorrect username or password.", 'danger')
-            return render_template('login.html')
+        #if user:
+            #return redirect(url_for('search'))
+        #else:
+            #flash("Incorrect username or password.", 'danger')
+            #return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
