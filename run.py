@@ -12,7 +12,11 @@ print("Dependencies downloaded successfully........")
 
 #establishing the connection
 conn = mysql.connector.connect(
+<<<<<<< HEAD
    user='root', host='localhost', password='pass', port=3306, database='ntuaflix')#change the password to your own password
+=======
+   user='root', host='localhost', password='1234', port=3306, database='ntuaflix')#change the password to your own password
+>>>>>>> 5e9d56fcbff7b4b2dc4294b1d52a1652eccfb77b
 conn.autocommit = True
 
 #Creating a cursor object using the cursor() method
@@ -63,6 +67,7 @@ def login():
         user_name = request.form.get("user_name")
         submitted_user_password = request.form.get("submitted_user_password")
         
+<<<<<<< HEAD
         cursor.execute("SELECT * FROM users WHERE user_name=%s AND user_password=%s", (user_name, submitted_user_password))
         user = cursor.fetchone()
         
@@ -73,6 +78,16 @@ def login():
         else:
             flash("Incorrect username or password.", 'danger')
             return render_template('login.html')
+=======
+        #cursor.execute("SELECT * FROM users WHERE user_name=%s AND user_password=%s", (user_name, submitted_user_password))
+        #user = cursor.fetchone()
+        
+        #if user:
+            #return redirect(url_for('search'))
+        #else:
+            #flash("Incorrect username or password.", 'danger')
+            #return render_template('login.html')
+>>>>>>> 5e9d56fcbff7b4b2dc4294b1d52a1652eccfb77b
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

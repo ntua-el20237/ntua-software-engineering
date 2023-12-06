@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<<<<<<< HEAD
     <div style="max-width: 450px; margin: 100px auto 0 auto; padding: 30px; text-align: center; background-color: #1f1f1f; border-radius: 10px; box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
         <h2 style="font-size: 28px; color: rgb(253, 253, 253); margin-bottom: 20px;">Search NTUAflix</h2>
         <form action="/search" method="post" style="padding: 20px; border-radius: 8px;">
@@ -12,6 +13,12 @@
             <input style="width: calc(100% - 40px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_genre" name="movie_genre" placeholder="Search by movie genre" required>
 
             <button style="width: 100px; padding: 12px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+=======
+    <div style="max-width: 600px; margin: 150px auto 0 auto; padding: 30px; text-align: center;">
+        <form action="/search" method="post" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+            <input style="width: calc(100% - 40px); padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #333; color: #fff; font-size: 16px;" type="text" id="movie_title" name="movie_title" placeholder="Enter the movie title" required>
+            <button style="width: 100px; padding: 15px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-left: 10px;">
+>>>>>>> 5e9d56fcbff7b4b2dc4294b1d52a1652eccfb77b
                 Search
             </button>
         </form>
