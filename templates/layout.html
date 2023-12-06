@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        /* Logo styles */
+        .logo {
+            text-align: left;
+            padding: 20px;
+            font-family: 'Anton', sans-serif; /* Using 'Anton' font */
+            font-size: 60px;
+            color: #e50914; /* Netflix red color */
+        }
+        /* Login button styles */
+        .login-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #cc0a10; /* Darker color on hover */
+        }
+        /* Rest of your styles */
+        /* ... */
+    </style>
+    {% block head %}
+    {% endblock %}
+</head>
+<body style="height:100%; background-image: url('/static/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+    <!-- Logo section -->
+    <header class="logo">
+        NTUAflix
+    </header>
+
+    <!-- Login button -->
+    <a href="/login" class="login-btn">Login</a>
+
+    <div class="container mx-auto" style="min-height: 100%;position: relative;">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <footer style="padding:10px; text-align: center; color: white; position: absolute; bottom: 0; width: 100%; height: 60px;"></footer>
+</body>
+</html>
