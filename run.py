@@ -12,7 +12,7 @@ print("Dependencies downloaded successfully........")
 
 #establishing the connection
 conn = mysql.connector.connect(
-   user='root', host='localhost', password='pass', port=3306, database='ntuaflix')#change the password to your own password
+   user='root', host='localhost', password='1234', port=3306, database='ntuaflix')#change the password to your own password
 conn.autocommit = True
 
 #Creating a cursor object using the cursor() method
@@ -76,6 +76,10 @@ def register():
 @app.route('/chat')
 def chat():
     return render_template('chat.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
 
 # Usage example
 #movie_title = input("Enter the movie title: ")

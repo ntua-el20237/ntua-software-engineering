@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}  
+    <style> 
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Use full viewport height */
+        }
+
+        .piechart {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-image: conic-gradient(
+                pink 70deg,
+                lightblue 0 235deg,
+                orange 0
+            );
+        }
+    </style> 
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="piechart"></div>
+    </div>
+{% endblock %}
