@@ -81,6 +81,12 @@ def chat():
 def profile():
     return render_template('profile.html')
 
+@app.route('/toppicks', methods=['GET', 'POST'])
+def toppicks():
+    if request.method == 'GET':
+        return render_template('toppicks.html')
+    else:
+        return redirect(url_for('toppicks'))
 # Usage example
 #movie_title = input("Enter the movie title: ")
 #result = search_movie(movie_title)

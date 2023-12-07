@@ -5,12 +5,13 @@
         <form action="/search" method="post" style="padding: 20px; border-radius: 8px;">
             <h2 style="font-size: 28px; color: rgb(253, 253, 253); margin-bottom: 20px;">Search NTUAflix</h2>
             <input style="width: calc(100% - 40px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_title" name="movie_title" placeholder="Search by movie title">
-            <input style="width: calc(100% - 40px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_title" name="movie_id" placeholder="Search by movie id">
+            <input style="width: calc(100% - 40px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_id" name="movie_id" placeholder="Search by movie id">
             <input style="width: calc(100% - 40px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_genre" name="movie_genre" placeholder="Search by genre">
-            <input style="width: calc(100% - 40px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_genre" name="movie_actor" placeholder="Search by actor">
-
-
-            <button style="width: 100px; padding: 12px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;"> Search </button>
+            <input style="width: calc(100% - 40px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_actor" name="movie_actor" placeholder="Search by actor">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="/toppicks" style="text-decoration: none; color: #e6dede; font-size: 18px; border: 1px solid #f0e9e9; padding: 10px 20px; border-radius: 8px;">Top Picks ></a>
+                <button style="width: calc(30% - 10px); padding: 12px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;"> Search </button>
+            </div>
         </form>
     </div>
 {% endblock %}

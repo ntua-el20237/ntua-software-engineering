@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        .custom-dropdown {
+            width: calc(100% - 40px);
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #333;
+            appearance: none; 
+            -webkit-appearance: none;
+            -moz-appearance: none; 
+        }
+
+        .custom-dropdown:after {
+            content: '▼';
+            position: absolute;
+            top: 80px;
+            right: 10px;
+            color: #fff;
+        }
+
+        /* Style for disabled options */
+        .disabled-option {
+            color: #808080; /* Gray color */
+        }
+    </style>
+
+    <div style="max-width: 300px; margin: 50px auto; padding: 20px; text-align: center; background-color: rgba(0, 0, 0, 0.8); border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
+        <form action="/topicks" method="post" style="padding: 20px; border-radius: 8px;">
+            <h2 style="font-size: 28px; color: rgb(253, 253, 253); margin-bottom: 20px;">Top Picks</h2>
+            <!-- Quantity dropdown -->
+            <select class="custom-dropdown">
+                <option value="" disabled selected class="disabled-option">Select Quantity</option>
+                {% for i in range(1, 21) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- Movie Genre dropdown -->
+            <select class="custom-dropdown">
+                <option value="" disabled selected class="disabled-option">Select a Movie Genre</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+            </select>
+
+            <!-- Movie actor input field -->
+            <input style="width: calc(100% - 70px); margin-bottom: 20px; padding: 12px; border: 1px solid #555; border-radius: 8px; font-size: 16px; color: #fff; background-color: #333;" type="text" id="movie_actor" name="movie_actor" placeholder="Movie actor">
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="/" style="text-decoration: none; color: #e6dede; font-size: 18px; border: 1px solid #f0e9e9; padding: 10px 20px; border-radius: 8px;">Back</a>
+                <button style="width: calc(60% - 20px); padding: 12px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;"> Search </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
