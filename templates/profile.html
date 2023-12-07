@@ -6,7 +6,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh; /* Use full viewport height */
+            height: 80vh;
+        }
+
+        .chart-container {
+            display: flex;
+            align-items: center;
         }
 
         .piechart {
@@ -18,12 +23,48 @@
                 lightblue 0 235deg,
                 orange 0
             );
+            margin-right: 20px;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
         }
     </style> 
 {% endblock %}
 
 {% block body %}
-<div style="background-color: rgba(0, 0, 0, 0.8); padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
-    <div class="piechart"></div>
-</div>
+    <div class="container">
+        <div class="chart-container">
+            <div class="piechart"></div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: pink;"></div>
+                    <span>Action</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: lightblue;"></div>
+                    <span>Thriller</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: orange;"></div>
+                    <span>Comedy</span>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
