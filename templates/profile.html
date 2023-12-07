@@ -6,12 +6,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Use full viewport height */
+            height: 80vh; /* Use full viewport height */
         }
 
         .piechart {
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             background-image: conic-gradient(
                 pink 70deg,
@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="piechart"></div>
-    </div>
+<div style="background-color: rgba(0, 0, 0, 0.8); padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+    <div class="piechart"></div>
+</div>
 {% endblock %}

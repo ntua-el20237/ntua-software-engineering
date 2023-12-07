@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            position: relative;
+            margin: 50px;
         }
         .logo {
             text-align: left;
@@ -17,33 +17,19 @@
             font-size: 60px;
             color: #e50914;
         }
-        .login-container {
+        .login-btn {
             position: absolute;
             top: 20px;
             right: 20px;
-            display: flex;
-            align-items: center;
-        }
-        .login-btn {
             padding: 8px 20px;
             border-radius: 5px;
             background-color: #e50914;
             color: white;
             border: none;
             cursor: pointer;
-            text-decoration: none;
-            margin-right: 10px;
         }
         .login-btn:hover {
             background-color: #cc0a10;
-        }
-        .profile-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-        .profile-link {
-            margin-right: 10px;
         }
     </style>
     {% block head %}
@@ -51,19 +37,12 @@
 </head>
 <body style="height:100%; background-image: url('/static/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
     <header class="logo"> NTUAflix </header>
-    
-    <div class="login-container">
-        <a href="/profile" class="profile-link">
-            <img src='/static/profile.jpg' alt="Profile" class="profile-icon">
-        </a>
-        <a href="/login" class="login-btn">Login</a>
-    </div>
-    
+
+    <a href="/login" class="login-btn">Login</a>
+
     <div class="container mx-auto" style="min-height: 100%;position: relative;">
         {% block body %}
         {% endblock %}
     </div>
-    
-    <footer style="padding:10px; text-align: center; color: white; position: absolute; bottom: 0; width: 100%; height: 60px;"></footer>
 </body>
 </html>
