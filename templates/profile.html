@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block title %}Profile Page{% endblock %}
+
 {% block head %}  
     <style> 
         .container {
@@ -47,8 +49,8 @@
     </style> 
 {% endblock %}
 
-{% block body %}
- <p>This is your profile page. <a href="{{ url_for('logout') }}">Logout</a></p>
+{% block content %}
+    <p>This is your profile page. <a href="{{ url_for('logout') }}">Logout</a></p>
     <div class="container">
         <div class="chart-container">
             <div class="piechart"></div>
