@@ -2,7 +2,7 @@
 
 {% block body %}
     <div style="max-width: 400px; margin: 50px auto 0 auto; padding: 20px; text-align: center; display: flex; ">
-        <form action="{{ url_for('login') }}" method="post" style="background-color: rgba(0, 0, 0, 0.8); padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+        <form action="/login" method="post" style="background-color: rgba(0, 0, 0, 0.8); padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
             <h1 style="font-size: 24px; margin-bottom: 20px; color: #fff;">Sign In</h1>
 
             <div style="margin-bottom: 20px;">
@@ -13,7 +13,7 @@
             </div>
             
             <button style="width: calc(100% - 40px); padding: 15px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">Sign In</button>
-            <p style="margin-top: 20px; color: #fff;">New to NTUAflix? <a href="{{ url_for('register') }}" style="color: #e50914;">Sign up now</a></p>
+            <p style="margin-top: 20px; color: #fff;">New to NTUAflix? <a href="/register" style="color: #e50914;">Sign up now</a></p>
         </form>
     </div>
 {% endblock %}

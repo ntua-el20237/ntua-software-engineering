@@ -12,7 +12,7 @@ print("Dependencies downloaded successfully........")
 
 #establishing the connection
 conn = mysql.connector.connect(
-   user='root', host='localhost', password='1234', port=3306, database='ntuaflix')#change the password to your own password
+   user='root', host='localhost', password='pass', port=3306, database='ntuaflix')#change the password to your own password
 conn.autocommit = True
 
 #Creating a cursor object using the cursor() method
@@ -36,11 +36,15 @@ def search_movie(title):
     else:
         return "Error fetching data"
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route('/ntuaflix')
+def register():
+    return render_template('register.html')
 
-@app.route('/search', methods=['POST'])
+@app.route('/ntuaflix/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/ntuaflix/search', methods=['POST'])
 def search():
     if request.method == 'POST':
         movie_id = request.form['movie_id']
@@ -48,55 +52,38 @@ def search():
         movie_genre = request.form['movie_genre']
         return redirect(url_for('results', movie_title=movie_title))
 
-@app.route('/<movie_title>')
+@app.route('/ntuaflix/<movie_title>')
 def results(movie_title):
     result = search_movie(movie_title)
     if isinstance(result, dict):
         return render_template('result.html', result=result)
     else:
         flash(result, 'danger')
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
         
-@app.route('/login', methods = ['GET', 'POST'])
+@app.route('/ntuaflix/login', methods = ['GET', 'POST'])
 def login():
     if request.method == 'GET':
         return render_template('login.html')
     else:
         user_name = request.form.get("user_name")
         submitted_user_password = request.form.get("submitted_user_password")
-        return render_template('login.html')
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'GET':
-        return render_template('register.html')
-    else:
-        return redirect(url_for('index'))
+        return render_template('home.html')
     
-@app.route('/chat')
+@app.route('/ntuaflix/chat')
 def chat():
     return render_template('chat.html')
 
-@app.route('/profile')
+@app.route('/ntuaflix/profile')
 def profile():
     return render_template('profile.html')
 
-@app.route('/toppicks', methods=['GET', 'POST'])
+@app.route('/ntuaflix/toppicks', methods=['GET', 'POST'])
 def toppicks():
     if request.method == 'GET':
         return render_template('toppicks.html')
     else:
         return redirect(url_for('toppicks'))
-# Usage example
-#movie_title = input("Enter the movie title: ")
-#result = search_movie(movie_title)
-#if isinstance(result, dict):
-  #  print("Title:", result['Title'])
-  #  print("Year:", result['Year'])
-   # print("IMDb Rating:", result['imdbRating'])
-   # print("Plot:", result['Plot'])
-#else:
- #   print(result)
 
     
 if __name__ == '__main__':

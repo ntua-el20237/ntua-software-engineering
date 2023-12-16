@@ -2,8 +2,8 @@
 
 {% block body %}
     <div style="max-width: 400px; margin: 50px auto 0 auto; padding: 20px; text-align: center; display: flex; ">
-        <form action="{{ url_for('register') }}" method="post" style="background-color: rgba(0, 0, 0, 0.8); padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
-            <h1 style="font-size: 24px; margin-bottom: 20px; color: #fff;">Get started</h1>
+        <form action="/register" method="post" style="background-color: rgba(0, 0, 0, 0.8); padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+            <h1 style="font-size: 24px; margin-bottom: 20px; color: #fff;">Welcome to NTUAflix</h1>
 
             <div style="margin-bottom: 20px;">
                 <input style="width: calc(100% - 40px); padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #333; color: #fff; font-size: 16px;" type="text" name="name" placeholder="Full Name">
@@ -18,7 +18,7 @@
             </div>
 
             <button style="width: calc(100% - 40px); padding: 15px; background-color: #e50914; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">Sign up</button>
-            <p style="margin-top: 20px; color: #fff;">Already have an account? <a href="{{ url_for('login') }}" style="color: #e50914;">Log in</a>.</p>
+            <p style="margin-top: 20px; color: #fff;">Already have an account? <a href="/login" style="color: #e50914;">Log in</a>.</p>
         </form>
 
         {% if error_message %}
