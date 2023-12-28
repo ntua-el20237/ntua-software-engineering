@@ -40,11 +40,49 @@ webserver.listen(98, () => {
 	console.log('Web-server is up and runing at: https://localhost:98');
 });
 
-const adminhealth = require('../API/admin/healthcheck');
+const home = require('../'),
+	logout = require('../api/logout'),
+	login = require('../api/login'),
+	adminhealth = require('../api/admin/healthcheck'),
+	titlebasics = require('../api/admin/upload/titlebasics'),
+	titleakas = require('../api/admin/upload/titleakas'),
+	namebasics = require('../api/admin/upload/namebasics'),
+	titlecrew = require('../api/admin/upload/titlecrew'),
+	titleepisode = require('../api/admin/upload/titleepisode'),
+	titleprincipals = require('../api/admin/upload/titleprincipals'),
+	titleratings = require('../api/admin/upload/titleratings'),
+	resetall = require('../api/admin/resetall'),
+	userMod = require('../api/admin/usermod/<string:username>/<string:password>'),
+	userInfo = require('../api/admin/users/<string:username>'),
+	title = require('../title/<string:titleID>'),
+	searchtitle = require('../searchtitle'),
+	bygenre = require('../bygenre'),
+	name = require('../name/<string:nameID>'),
+	searchname = require('../searchname');
 const { homedir } = require('os');
 
 // RESTFUL API ROUTES
+app.use(baseurl+'/', home);
+app.use(baseurl+'/login', login);
+app.use(baseurl+'/logout', logout);
+
 app.use(baseurl+'/admin/healthcheck', adminhealth);
+app.use(baseurl+'/admin/upload/titlebasics', titlebasics);
+app.use(baseurl+'/admin/upload/titleakas', titleakas);
+app.use(baseurl+'/admin/upload/titlecrew', titlecrew);
+app.use(baseurl+'/admin/upload/titleepisode', titleepisode);
+app.use(baseurl+'/admin/upload/titleprincipals', titleprincipals);
+app.use(baseurl+'/admin/upload/titleratings', titleratings);
+app.use(baseurl+'/admin/resetall', resetall);
+app.use(baseurl+'/admin/usermod/<string:username>/<string:password>', userMod);
+app.use(baseurl+'/admin/users/<string:username>', userInfo);
+app.use(baseurl+'/admin/resetall', resetall);
+
+app.use(baseurl+'/title/<string:titleID>', title);
+app.use(baseurl+'/searchtitle', searchtitle);
+app.use(baseurl+'/bygenre', bygenre);
+app.use(baseurl+'/name/<string:nameID>', name);
+app.use(baseurl+'/searchname', searchname);
 
 // ROUTES FOR FRONTEND
 webapp.use(express.static(path.join(__dirname, '..') + "/frontend/static"));
