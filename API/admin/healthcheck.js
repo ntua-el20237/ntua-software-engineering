@@ -4,17 +4,16 @@ const router = express.Router();
 const pool = require('../../backend/connect');
 
 router.get('/', function(req, res) {
-	pool.connect(function(err, client, release) {
-		if(err) {
-		        res.status(500).json({status:"failed", "dbconnection":"root://pass:root@localhost:9876/ntuaflix"});
-                        console.log("connection failed", err);
-  		}
-		else {
-			res.status(200).json({status:"OK", "dbconnection":"root://root:pass@localhost:9876/ntuaflix"});
-                       	console.log("connection successful");
-		}
-		release();
+	pool.getConnection(function(err, connection) {
+	  if (err) {
+		res.status(500).json({ status: "failed", error: err });
+		console.log("Connection failed", err);
+	  } else {
+		res.status(200).json({ status: "OK", message: "Connected to Ntuaflix" });
+		console.log("Connection successful");
+		connection.release();
+	  }
 	});
-});
+  });
 
 module.exports = router;

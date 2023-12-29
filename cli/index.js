@@ -20,19 +20,3 @@ program
             console.log(resp.data);
         })
     });
-
-// CLI options for admin users
-program 
-    .command('admin')
-    .showHelpAfterError('add --help for additional information')
-    .helpOption('-h, --help', 'Display help for command')
-    .requiredOption('--passesupd',               'Don\'t give any argument           ->      {}')
-    .requiredOption('--source <path>',                  'Give the path to the file         ->      \"/data/newXXXX.csv\"')
-    .action((options)=>{
-        if(options.passesupd!=undefined && options.source==undefined)
-            console.error('Argument \'--pasesupd\' must be followes by \'--source\'');
-        else if(options.passesupd!=undefined)
-            apu(options.source);
-    });
-    
-program.parse(process.argv);

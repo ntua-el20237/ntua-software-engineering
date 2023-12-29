@@ -1,13 +1,11 @@
-const pg = require('pg');
-require('dotenv').config();
+const mysql = require('../node_modules/mysql');
 
-const config = {
-  	user: "root",
-	host: "localhost",
-  	database: "ntuaflix",
-  	password: "pass",
-  	port: 9876,
-}
-
-const pool = new pg.Pool(config);
+const pool = mysql.createPool({
+  connectionLimit: 10,
+  host: 'localhost',
+  user: 'root',
+  password: 'pass',
+  database: 'ntuaflix',
+  port: 3306
+});
 module.exports = pool;
