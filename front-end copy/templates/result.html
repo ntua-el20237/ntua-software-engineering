@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <style>
+        .movie-details {
+            display: flex;
+            max-width: 800px;
+            margin: 50px auto 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .movie-poster {
+            flex: 0 0 200px;
+            margin-right: 20px;
+        }
+        .movie-poster img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .movie-info {
+            flex: 1;
+            text-align: left;
+        }
+        .movie-info h2 {
+            margin-bottom: 10px;
+        }
+        .movie-info p {
+            margin-bottom: 5px;
+        }
+        .movie-info img {
+            height: 1em;
+            vertical-align: middle;
+        }
+        .go-back {
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: #333;
+            margin-top: auto;
+            align-self: flex-end;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<form action="/search" method="get">
+    <div class="movie-details">
+        {% if result %}
+            <div class="movie-poster">
+                {% if result['img_url_asset'] != 'N/A' %}
+                    <img src="{{ result['img_url_asset'] }}" alt="{{ result['originalTitle'] }} cover">
+                {% else %}
+                    <p>No poster available</p>
+                {% endif %}
+            </div>
+            <div class="movie-info">
+                <h2>{{ result['originalTitle'] }} ({{ result['startYear'] }}{% if result['endYear'] %} - {{ result['endYear'] }}{% endif %})</h2>
+                <p><strong>Runtime:</strong> {{ result['runtimeMinutes'] }} minutes</p>
+                <p><strong>Genres:</strong> {{ result['genres'] }}</p>
+                <p><strong>Rating <img src='star.jpg'></strong> {{ result['rating'] }}</p>
+                <p><strong><img src='like.jpg'> <img src='unlike.jpg'></strong></p>
+            </div>
+        {% endif %}
+        <a href="/" class="go-back">Go back to search</a>
+    </div>
+</form>
+{% endblock %}
